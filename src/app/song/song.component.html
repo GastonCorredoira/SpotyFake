@@ -1,0 +1,26 @@
+<h3>Some songs for you</h3>
+
+<table class="table table-dark table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Duration</th>
+      <th scope="col">Add</th>
+      <th scope="col">Rate</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let song of songs">
+      <td>{{song.name}}</td>
+      <td>{{song.duration}}</td>
+      <td>
+        <button *ngIf="notOnFavourite(song)" (click)="addFavourite(song)" type="button" class="btn btn-warning boton">Add to favourites</button>
+        <button *ngIf="alreadyOnFavourite(song)" (click)="addFavourite(song)" type="button" class="btn btn-warning boton" disabled>Added to favourites</button>
+      </td>
+      <td id="flex">
+        <app-input-rate [(rate)]="song.rate"></app-input-rate>
+        <button class="btn" style="color: white;" (click)="rateSong(song)">Rate song</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

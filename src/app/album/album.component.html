@@ -1,0 +1,26 @@
+<div class="container text-center">
+  <div id="albumFlex">
+    <h3>Popular albums</h3>
+    <a id="seeAll" [routerLink]="['/albums']">SEE ALL</a>
+  </div>
+  <div class="row row-cols-4">
+    <div *ngFor="let album of albums">
+      <div class="col">
+        <div class="card shadow mb-5 bg-body rounded" style="width: 18rem; margin-top: 30px;">
+          <img src="{{album.logo}}" class="card-img-top" alt="album{$album->id}logo">
+          <div class="card-body">
+            <h5 class="card-title">{{album.albumname}}</h5>
+            <p class="card-text">{{album.artist}}</p>
+            <div style="display: flex; flex-direction: column;">
+              <a [routerLink]="['/']" class="btn btn-warning boton" style="margin-bottom:10px;">View Album</a>
+                <a>
+                  <button *ngIf="notOnFavourite(album)" (click)="addFavourite(album)" type="button" class="btn btn-sm btn-warning boton">Add to favourites</button>
+                  <button *ngIf="alreadyOnFavourite(album)" (click)="addFavourite(album)" type="button" class="btn btn-sm btn-warning boton" disabled>Added to favourites</button>
+                </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

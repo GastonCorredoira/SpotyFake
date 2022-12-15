@@ -1,0 +1,36 @@
+.boton {
+    background-color: #1ED760;
+    border-color: #1ED760;
+}
+
+.card-body {
+    background-color: #171717;
+}
+
+.card-text {
+    color: #9C9C9C;
+}
+
+.card {
+    border-color: #171717;
+}
+
+.card:hover {
+    .card-body {
+        transition-duration: 0.5s;
+        background-color: #252525;
+    }
+}
+
+#albumFlex {
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+    margin: 50px auto 0 auto;
+    align-items: baseline;
+}
+
+#seeAll {
+    color: #B3B3B3;
+    text-decoration: none;
+}

@@ -1,0 +1,14 @@
+<div *ngIf="ratedSongsQuantity() > 0">
+    <h3>Rated songs</h3>
+    <ul>
+        <li *ngFor="let song of rateList$ | async" class="list-group-item list-group-item-action list-group-item-dark">
+            {{song.name}} : {{song.rate}}
+        </li>
+    </ul>
+</div>
+
+
+<div *ngIf="ratedSongsQuantity() == 0">
+    <h3>You don't have rated songs yet!</h3>
+    <p>Go <a [routerLink]="['/']">here</a> and see what you can rate</p>
+</div>

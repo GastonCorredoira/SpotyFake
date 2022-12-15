@@ -1,0 +1,23 @@
+<div *ngIf="functionOR() > 0">
+    <div *ngIf="albumLength() > 0">
+        <h3>Your favourites albums</h3>
+        <ul>
+            <li *ngFor="let album of favouriteAlbums$ | async" class="list-group-item list-group-item-action list-group-item-dark">
+                {{album.albumname}}
+            </li>
+        </ul>
+    </div>
+
+    <div *ngIf="songLength() > 0">
+        <h3>Your favourites songs</h3>
+        <ul>
+            <li *ngFor="let song of favouriteSongs$ | async" class="list-group-item list-group-item-action list-group-item-dark">
+                {{song.name}} : {{song.duration}}
+            </li>
+        </ul>
+    </div>
+</div>
+<div *ngIf="functionOR() == 0">
+    <h3>You don't have favorites yet!</h3>
+    <p>Go <a [routerLink]="['/']">here</a> and see what you like</p>
+</div>
